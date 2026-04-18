@@ -203,8 +203,9 @@ button, input, select, textarea { font-family: inherit; }
 
 /* ===== CONTACT ===== */
 .contact-section {
-  background: linear-gradient(135deg, #0a0f1e 0%, #0d1f35 100%);
+  background: transparent;
   position: relative; overflow: hidden;
+  width: 100vw; margin-left: calc(50% - 50vw);
 }
 .contact-section::before {
   content: ''; position: absolute; top: -50%; right: -20%;
