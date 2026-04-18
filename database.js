@@ -100,7 +100,7 @@ async function init() {
       (titulo, descripcion, tipo, operacion, precio, moneda, direccion, distrito, dormitorios, banos, area, estacionamiento, ano_construccion, destacado, lat, lng)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, args);
 
-    await ins(['Apartamento Moderno en Miraflores', 'Hermoso apartamento con vista al mar, acabados de lujo, cocina equipada y áreas comunes exclusivas.', 'apartamento', 'venta', 350000, 'USD', 'Av. Larco 450', 'Miraflores', 3, 2, 120, 1, 2022, 1, -12.1211, -77.0282]);
+    await ins(['MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA', 'Hermoso apartamento con vista al mar, acabados de lujo, cocina equipada y áreas comunes exclusivas.', 'terreno', 'venta', 30000, 'PEN', 'Av. Larco 450', 'Miraflores', 3, 2, 120, 1, 2022, 1, -12.1211, -77.0282]);
     await ins(['Casa en San Isidro', 'Amplia casa familiar con jardín, piscina y zona de barbacoa. Ideal para familias que buscan comodidad.', 'casa', 'venta', 580000, 'USD', 'Calle Los Eucaliptos 230', 'San Isidro', 4, 3, 280, 2, 2018, 1, -12.0960, -77.0384]);
     await ins(['Oficina Premium en San Isidro', 'Oficina corporativa en edificio empresarial de primer nivel, con recepción compartida y salas de reuniones.', 'oficina', 'alquiler', 3500, 'USD', 'Av. Rivera Navarrete 765', 'San Isidro', 0, 2, 95, 1, 2020, 0, -12.0932, -77.0280]);
     await ins(['Departamento en Barranco', 'Departamento con encanto en el corazón de Barranco, cerca de galerías de arte y restaurantes.', 'apartamento', 'alquiler', 1800, 'USD', 'Jr. Centenario 120', 'Barranco', 2, 1, 75, 0, 2015, 1, -12.1503, -77.0211]);
@@ -108,8 +108,8 @@ async function init() {
     await ins(['Local Comercial en Surco', 'Local en esquina con alto flujo peatonal, vidrios templados, ideal para boutique o restaurante.', 'local', 'ambos', 4200, 'USD', 'Av. Primavera 1240', 'Santiago de Surco', 0, 1, 60, 0, 2019, 0, -12.1100, -77.0034]);
   }
 
-  // Asignar imagen a Apartamento Moderno en Miraflores
-  await run('UPDATE propiedades SET imagen_principal = ? WHERE titulo = ? AND (imagen_principal IS NULL OR imagen_principal = ?)', ['/images/logroño.png', 'Apartamento Moderno en Miraflores', '']);
+  // Actualizar propiedad 1 con datos correctos
+  await run(`UPDATE propiedades SET titulo = ?, tipo = ?, precio = ?, moneda = ?, imagen_principal = ? WHERE id = 1`, ['MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA', 'terreno', 30000, 'PEN', '/images/logroño.png']);
 
   // Blog de ejemplo
   const blogCount = await get('SELECT COUNT(*) as c FROM blog');
