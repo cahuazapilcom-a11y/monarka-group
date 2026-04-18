@@ -63,14 +63,17 @@ button, input, select, textarea { font-family: inherit; }
 /* ===== HERO ===== */
 .hero {
   min-height: 100vh; position: relative; display: flex; align-items: center;
-  background: linear-gradient(135deg, #0a0f1e 0%, #0d1f35 100%);
+  background: #000;
   overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 .hero-bg {
   position: absolute; inset: 0; background-image: url('images/hero-bg.jpg');
   background-size: cover; background-position: center; opacity: 0.25;
 }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,15,30,0.9) 50%, transparent); }
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
 .hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 120px 20px 80px; display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: center; width: 100%; }
 .hero-tag { color: var(--primary); font-size: 0.85rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
 .hero-tag::before { content: ''; width: 32px; height: 2px; background: var(--primary); }
