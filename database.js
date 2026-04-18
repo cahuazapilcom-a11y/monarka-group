@@ -108,6 +108,9 @@ async function init() {
     await ins(['Local Comercial en Surco', 'Local en esquina con alto flujo peatonal, vidrios templados, ideal para boutique o restaurante.', 'local', 'ambos', 4200, 'USD', 'Av. Primavera 1240', 'Santiago de Surco', 0, 1, 60, 0, 2019, 0, -12.1100, -77.0034]);
   }
 
+  // Asignar imagen a Apartamento Moderno en Miraflores
+  await run('UPDATE propiedades SET imagen_principal = ? WHERE titulo = ? AND (imagen_principal IS NULL OR imagen_principal = ?)', ['/images/logroño.png', 'Apartamento Moderno en Miraflores', '']);
+
   // Blog de ejemplo
   const blogCount = await get('SELECT COUNT(*) as c FROM blog');
   if (blogCount.c === 0) {
