@@ -111,6 +111,7 @@ async function init() {
   // Actualizar propiedad 1 con datos correctos
   await run(`UPDATE propiedades SET titulo = ?, tipo = ?, precio = ?, moneda = ?, imagen_principal = ?, lat = ?, lng = ?, direccion = ?, distrito = ? WHERE id = 1`, ['MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA', 'terreno', 30000, 'PEN', '/images/logroño.png', -5.9050939, -76.1376790, 'Calle La Campiña, Caserío Belén', 'Yurimaguas']);
   // Actualizar propiedad 2
+  await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ? WHERE id = 4`, ['/images/yair.jpeg', JSON.stringify(['/images/yair.jpeg'])]);
   await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ?, descripcion = ?, titulo = ?, tipo = ?, distrito = ?, ciudad = NULL, lat = ?, lng = ?, precio = ?, moneda = ? WHERE id = 2`, ['/images/buena.png', JSON.stringify(['/images/buena.png']), 'Predio - Calle Saniyacu, Urb. Libertad del Paranapura, Yurimaguas', 'Urb. Libertad del Paranapura, Yurimaguas', 'terreno', 'Yurimaguas', -5.8834442, -76.1311200, 69000, 'PEN']);
 
   // Blog de ejemplo
