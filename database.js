@@ -107,7 +107,7 @@ async function init() {
 
     await ins(['Terreno en La Molina', 'Terreno plano en zona residencial exclusiva, todos los servicios, ideal para construir la casa de sus sueños.', 'terreno', 'venta', 220000, 'USD', 'Av. La Fontana 890', 'La Molina', 0, 0, 450, 0, null, 0, -12.0852, -76.9302]);
     await ins(['Local Comercial en Surco', 'Local en esquina con alto flujo peatonal, vidrios templados, ideal para boutique o restaurante.', 'local', 'ambos', 4200, 'USD', 'Av. Primavera 1240', 'Santiago de Surco', 0, 1, 60, 0, 2019, 0, -12.1100, -77.0034]);
-    await ins(['Las Flores, Yurimaguas', 'Las Flores, Yurimaguas', 'terreno', 'venta', 145000, 'PEN', 'Las Flores', 'Yurimaguas', 0, 0, 328.86, 0, null, 1, null, null]);
+    await ins(['Las Flores, Yurimaguas', 'AA.HH. La Loma, Las Flores, Carretera III-IV Etapa, MZ 22, Lote 7A, Yurimaguas, Alto Amazonas, Loreto', 'terreno', 'venta', 145000, 'PEN', 'Las Flores', 'Yurimaguas', 0, 0, 328.86, 0, null, 1, null, null]);
   }
 
   // Actualizar propiedad 1 con datos correctos
