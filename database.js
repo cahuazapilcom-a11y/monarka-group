@@ -100,7 +100,7 @@ async function init() {
       (titulo, descripcion, tipo, operacion, precio, moneda, direccion, distrito, dormitorios, banos, area, estacionamiento, ano_construccion, destacado, lat, lng)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, args);
 
-    await ins(['MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA', '', 'terreno', 'venta', 30000, 'PEN', 'Av. Larco 450', 'Miraflores', 3, 2, 120, 1, 2022, 1, -12.1211, -77.0282]);
+    await ins(['MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA', 'Predio - Calle La Campiña, Yurimaguas', 'terreno', 'venta', 30000, 'PEN', 'Av. Larco 450', 'Miraflores', 3, 2, 120, 1, 2022, 1, -12.1211, -77.0282]);
     await ins(['Casa en San Isidro', 'Amplia casa familiar con jardín, piscina y zona de barbacoa. Ideal para familias que buscan comodidad.', 'casa', 'venta', 580000, 'USD', 'Calle Los Eucaliptos 230', 'San Isidro', 4, 3, 280, 2, 2018, 1, -12.0960, -77.0384]);
     await ins(['Oficina Premium en San Isidro', 'Oficina corporativa en edificio empresarial de primer nivel, con recepción compartida y salas de reuniones.', 'oficina', 'alquiler', 3500, 'USD', 'Av. Rivera Navarrete 765', 'San Isidro', 0, 2, 95, 1, 2020, 0, -12.0932, -77.0280]);
     await ins(['Departamento en Barranco', 'Departamento con encanto en el corazón de Barranco, cerca de galerías de arte y restaurantes.', 'apartamento', 'alquiler', 1800, 'USD', 'Jr. Centenario 120', 'Barranco', 2, 1, 75, 0, 2015, 1, -12.1503, -77.0211]);
