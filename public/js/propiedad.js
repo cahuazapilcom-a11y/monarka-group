@@ -42,12 +42,6 @@ async function loadProp() {
       ['Tipo', p.tipo?.charAt(0).toUpperCase() + p.tipo?.slice(1)],
       ['Operación', p.operacion?.charAt(0).toUpperCase() + p.operacion?.slice(1)],
       ['Distrito', p.distrito],
-      ['Ciudad', p.ciudad],
-      ['Área', p.area ? `${p.area} m²` : null],
-      ['Plantas', p.total_plantas],
-      ['Planta', p.planta],
-      ['Año de Construcción', p.ano_construccion],
-      ['Estacionamientos', p.estacionamiento > 0 ? p.estacionamiento : null],
     ].filter(r => r[1]);
     document.getElementById('infoTable').innerHTML = rows.map(r => `<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
 
