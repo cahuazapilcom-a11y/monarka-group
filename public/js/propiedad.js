@@ -37,6 +37,19 @@ async function loadProp() {
     // Descripción
     document.getElementById('propDesc').textContent = p.descripcion || 'Sin descripción disponible.';
 
+    // Datos registrales por propiedad
+    const registral = {
+      1: { ubicacion: 'Calle La Campiña, MZ A, Lote 1, Lotización La Campiña, Sector Caserío Belén, Yurimaguas, Alto Amazonas, Loreto', area: '295.83 m²', partida: 'N° 11041242' },
+      2: { ubicacion: 'Calle Saniyacu, MZ I, Lote 2, Urb. Libertad del Paranapura, Yurimaguas, Alto Amazonas, Loreto', area: '167.70 m²', partida: 'N° 11047964' },
+    };
+    const reg = registral[p.id];
+    if (reg) {
+      document.getElementById('regUbicacion').textContent = reg.ubicacion;
+      document.getElementById('regArea').textContent = reg.area;
+      document.getElementById('regPartida').textContent = reg.partida;
+      document.getElementById('registralBox').style.display = 'block';
+    }
+
     // Info adicional
     const rows = [
       ['Tipo', p.tipo?.charAt(0).toUpperCase() + p.tipo?.slice(1)],
