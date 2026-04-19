@@ -15,8 +15,8 @@ async function loadProp() {
     // Precio y título
     document.getElementById('propPrice').textContent = formatPrice(p.precio, p.moneda) + (p.operacion === 'alquiler' ? '/mes' : '');
     document.getElementById('propTitle').textContent = p.titulo;
-    document.getElementById('propLocText').textContent = `${p.direccion || ''} ${p.distrito || ''}, ${p.ciudad || 'Lima'}`;
-    document.getElementById('mapAddress').textContent = `${p.direccion || ''}, ${p.distrito || ''}, ${p.ciudad || 'Lima'}`;
+    document.getElementById('propLocText').textContent = [p.direccion, p.distrito, p.ciudad].filter(Boolean).join(', ');
+    document.getElementById('mapAddress').textContent = [p.direccion, p.distrito, p.ciudad].filter(Boolean).join(', ');
 
     // Badges
     const opBadge = p.operacion === 'venta'
