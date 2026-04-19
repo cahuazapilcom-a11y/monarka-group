@@ -128,10 +128,10 @@ async function init() {
       1
     ]);
     await run('INSERT INTO blog (titulo, slug, resumen, contenido, publicado) VALUES (?, ?, ?, ?, ?)', [
-      'El mercado inmobiliario en Lima 2024',
+      'El mercado inmobiliario en Loreto 2024',
       'mercado-inmobiliario-lima-2024',
-      'Análisis del comportamiento del mercado inmobiliario en Lima durante 2024 y las tendencias para el próximo año.',
-      '<p>El mercado inmobiliario en Lima ha mostrado una recuperación significativa durante el 2024.</p><h3>Tendencias principales</h3><p>Los distritos de Miraflores, San Isidro y Barranco continúan siendo los más demandados.</p><h3>Precios</h3><p>Los precios por m² en zonas premium se han mantenido estables, con un incremento moderado del 3-5%.</p>',
+      'Análisis del comportamiento del mercado inmobiliario en Loreto durante 2024 y las tendencias para el próximo año.',
+      '<p>El mercado inmobiliario en Loreto ha mostrado una recuperación significativa durante el 2024.</p><h3>Tendencias principales</h3><p>Los distritos de Yurimaguas y Tarapoto continúan siendo los más demandados.</p><h3>Precios</h3><p>Los precios por m² en zonas premium se han mantenido estables, con un incremento moderado del 3-5%.</p>',
       1
     ]);
   }
