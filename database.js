@@ -51,8 +51,10 @@ async function init() {
     lng REAL,
     destacado INTEGER DEFAULT 0,
     activo INTEGER DEFAULT 1,
-    creado_en DATETIME DEFAULT CURRENT_TIMESTAMP
+    creado_en DATETIME DEFAULT CURRENT_TIMESTAMP,
+    registral TEXT DEFAULT NULL
   )`);
+  await run(`ALTER TABLE propiedades ADD COLUMN registral TEXT DEFAULT NULL`).catch(() => {});
 
   await run(`CREATE TABLE IF NOT EXISTS blog (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -107,12 +109,11 @@ async function init() {
     await ins(['Las Flores, Yurimaguas', 'AA.HH. La Loma, Las Flores, Carretera III-IV Etapa, MZ 22, Lote 7A, Yurimaguas, Alto Amazonas, Loreto', 'terreno', 'venta', 145000, 'PEN', 'Las Flores', 'Yurimaguas', 0, 0, 328.86, 0, null, 1, null, null]);
   }
 
-  // Actualizar propiedad 1 con datos correctos
-  await run(`UPDATE propiedades SET titulo = ?, tipo = ?, precio = ?, moneda = ?, imagen_principal = ?, lat = ?, lng = ?, direccion = ?, distrito = ? WHERE id = 1`, ['MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA', 'terreno', 30000, 'PEN', '/images/logroño.png', -5.9050939, -76.1376790, 'Calle La Campiña, Caserío Belén', 'Yurimaguas']);
-  // Actualizar propiedad 2
-  await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ?, descripcion = ?, tipo = ?, operacion = ?, distrito = ?, ciudad = NULL, lat = ?, lng = ? WHERE id = 4`, ['/images/yair.jpeg', JSON.stringify(['/images/yair.jpeg']), 'Vía de Acceso, MZ A, Lote 12, Urb. Monte Rey, Yurimaguas, Alto Amazonas, Loreto', 'terreno', 'venta', 'Yurimaguas', -5.9152361, -76.1410971]);
-  await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ?, titulo = ?, precio = ?, moneda = ?, distrito = ?, ciudad = NULL, lat = ?, lng = ? WHERE titulo = ?`, ['/images/flores.jpeg', JSON.stringify(['/images/flores.jpeg']), 'Las Flores, Yurimaguas', 145000, 'PEN', 'Yurimaguas', -5.9030579, -76.1118097, 'Las Flores, Yurimaguas']);
-  await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ?, descripcion = ?, titulo = ?, tipo = ?, distrito = ?, ciudad = NULL, lat = ?, lng = ?, precio = ?, moneda = ? WHERE id = 2`, ['/images/buena.png', JSON.stringify(['/images/buena.png']), 'Predio - Calle Saniyacu, Urb. Libertad del Paranapura, Yurimaguas', 'Urb. Libertad del Paranapura, Yurimaguas', 'terreno', 'Yurimaguas', -5.8834442, -76.1311200, 69000, 'PEN']);
+  // Actualizar imágenes, coords y datos registrales por título
+  await run(`UPDATE propiedades SET imagen_principal=?, imagenes=?, lat=?, lng=?, direccion=?, distrito=?, ciudad=NULL, registral=? WHERE titulo=?`, ['/images/logroño.png', JSON.stringify(['/images/logroño.png']), -5.9050939, -76.1376790, 'Calle La Campiña, Caserío Belén', 'Yurimaguas', JSON.stringify({ubicacion:'Calle La Campiña, MZ A, Lote 1, Lotización La Campiña, Sector Caserío Belén, Yurimaguas, Alto Amazonas, Loreto', area:'295.83 m²', partida:'N° 11041242'}), 'MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA']);
+  await run(`UPDATE propiedades SET imagen_principal=?, imagenes=?, lat=?, lng=?, ciudad=NULL, registral=? WHERE titulo=?`, ['/images/buena.png', JSON.stringify(['/images/buena.png']), -5.8834442, -76.1311200, JSON.stringify({ubicacion:'Calle Saniyacu, MZ I, Lote 2, Urb. Libertad del Paranapura, Yurimaguas, Alto Amazonas, Loreto', area:'167.70 m²', partida:'N° 11047964'}), 'Urb. Libertad del Paranapura, Yurimaguas']);
+  await run(`UPDATE propiedades SET imagen_principal=?, imagenes=?, lat=?, lng=?, ciudad=NULL, registral=? WHERE titulo=?`, ['/images/yair.jpeg', JSON.stringify(['/images/yair.jpeg']), -5.9152361, -76.1410971, JSON.stringify({ubicacion:'Vía de Acceso, MZ A, Lote 12, Urb. Monte Rey, Yurimaguas, Alto Amazonas, Loreto', area:'383.73 m²', partida:'N° 11045367'}), 'Urb. Monte Rey']);
+  await run(`UPDATE propiedades SET imagen_principal=?, imagenes=?, lat=?, lng=?, ciudad=NULL, registral=? WHERE titulo=?`, ['/images/flores.jpeg', JSON.stringify(['/images/flores.jpeg']), -5.9030579, -76.1118097, JSON.stringify({ubicacion:'AA.HH. La Loma, Las Flores, Carretera III-IV Etapa, MZ 22, Lote 7A, Yurimaguas, Alto Amazonas, Loreto', area:'328.86 m²', partida:'P49004348'}), 'Las Flores, Yurimaguas']);
 
   // Blog de ejemplo
   const blogCount = await get('SELECT COUNT(*) as c FROM blog');
