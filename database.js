@@ -111,7 +111,7 @@ async function init() {
   // Actualizar propiedad 1 con datos correctos
   await run(`UPDATE propiedades SET titulo = ?, tipo = ?, precio = ?, moneda = ?, imagen_principal = ?, lat = ?, lng = ?, direccion = ?, distrito = ? WHERE id = 1`, ['MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA', 'terreno', 30000, 'PEN', '/images/logroño.png', -5.9050939, -76.1376790, 'Calle La Campiña, Caserío Belén', 'Yurimaguas']);
   // Actualizar propiedad 2
-  await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ?, descripcion = ?, tipo = ?, distrito = ?, ciudad = NULL WHERE id = 2`, ['/images/buena.png', JSON.stringify(['/images/buena.png']), 'Predio - Calle Saniyacu, Urb. Libertad del Paranapura, Yurimaguas', 'terreno', 'Yurimaguas']);
+  await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ?, descripcion = ?, tipo = ?, distrito = ?, ciudad = NULL, lat = ?, lng = ? WHERE id = 2`, ['/images/buena.png', JSON.stringify(['/images/buena.png']), 'Predio - Calle Saniyacu, Urb. Libertad del Paranapura, Yurimaguas', 'terreno', 'Yurimaguas', -5.8834442, -76.1311200]);
 
   // Blog de ejemplo
   const blogCount = await get('SELECT COUNT(*) as c FROM blog');
