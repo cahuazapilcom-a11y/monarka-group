@@ -102,11 +102,8 @@ async function init() {
 
     await ins(['MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA', 'Predio - Calle La Campiña, Yurimaguas', 'terreno', 'venta', 30000, 'PEN', 'Av. Larco 450', 'Miraflores', 0, 0, 295.83, 0, null, 1, -12.1211, -77.0282]);
     await ins(['Urb. Libertad del Paranapura, Yurimaguas', 'Predio - Calle Saniyacu, Urb. Libertad del Paranapura, Yurimaguas', 'terreno', 'venta', 69000, 'PEN', 'Calle Saniyacu, Urb. Libertad del Paranapura', 'Yurimaguas', 0, 0, 167.70, 0, null, 1, -12.0960, -77.0384]);
-    await ins(['Oficina Premium en San Isidro', 'Oficina corporativa en edificio empresarial de primer nivel, con recepción compartida y salas de reuniones.', 'oficina', 'alquiler', 3500, 'USD', 'Av. Rivera Navarrete 765', 'San Isidro', 0, 2, 95, 1, 2020, 0, -12.0932, -77.0280]);
     await ins(['Urb. Monte Rey', 'Vía de Acceso, MZ A, Lote 12, Urb. Monte Rey, Yurimaguas, Alto Amazonas, Loreto', 'terreno', 'venta', 18000, 'PEN', 'Vía de Acceso, Urb. Monte Rey', 'Yurimaguas', 0, 0, 383.73, 0, null, 1, -12.1503, -77.0211]);
 
-    await ins(['Terreno en La Molina', 'Terreno plano en zona residencial exclusiva, todos los servicios, ideal para construir la casa de sus sueños.', 'terreno', 'venta', 220000, 'USD', 'Av. La Fontana 890', 'La Molina', 0, 0, 450, 0, null, 0, -12.0852, -76.9302]);
-    await ins(['Local Comercial en Surco', 'Local en esquina con alto flujo peatonal, vidrios templados, ideal para boutique o restaurante.', 'local', 'ambos', 4200, 'USD', 'Av. Primavera 1240', 'Santiago de Surco', 0, 1, 60, 0, 2019, 0, -12.1100, -77.0034]);
     await ins(['Las Flores, Yurimaguas', 'AA.HH. La Loma, Las Flores, Carretera III-IV Etapa, MZ 22, Lote 7A, Yurimaguas, Alto Amazonas, Loreto', 'terreno', 'venta', 145000, 'PEN', 'Las Flores', 'Yurimaguas', 0, 0, 328.86, 0, null, 1, null, null]);
   }
 
