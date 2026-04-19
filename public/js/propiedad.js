@@ -41,6 +41,7 @@ async function loadProp() {
     const registral = {
       1: { ubicacion: 'Calle La Campiña, MZ A, Lote 1, Lotización La Campiña, Sector Caserío Belén, Yurimaguas, Alto Amazonas, Loreto', area: '295.83 m²', partida: 'N° 11041242' },
       2: { ubicacion: 'Calle Saniyacu, MZ I, Lote 2, Urb. Libertad del Paranapura, Yurimaguas, Alto Amazonas, Loreto', area: '167.70 m²', partida: 'N° 11047964' },
+      4: { ubicacion: 'Vía de Acceso, MZ A, Lote 12, Urb. Monte Rey, Yurimaguas, Alto Amazonas, Loreto', area: '383.73 m²', partida: 'N° 11045367' },
     };
     const reg = registral[p.id];
     if (reg) {
