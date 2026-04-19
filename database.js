@@ -107,12 +107,14 @@ async function init() {
 
     await ins(['Terreno en La Molina', 'Terreno plano en zona residencial exclusiva, todos los servicios, ideal para construir la casa de sus sueños.', 'terreno', 'venta', 220000, 'USD', 'Av. La Fontana 890', 'La Molina', 0, 0, 450, 0, null, 0, -12.0852, -76.9302]);
     await ins(['Local Comercial en Surco', 'Local en esquina con alto flujo peatonal, vidrios templados, ideal para boutique o restaurante.', 'local', 'ambos', 4200, 'USD', 'Av. Primavera 1240', 'Santiago de Surco', 0, 1, 60, 0, 2019, 0, -12.1100, -77.0034]);
+    await ins(['Las Flores, Yurimaguas', 'Las Flores, Yurimaguas', 'terreno', 'venta', 145000, 'PEN', 'Las Flores', 'Yurimaguas', 0, 0, 328.86, 0, null, 1, null, null]);
   }
 
   // Actualizar propiedad 1 con datos correctos
   await run(`UPDATE propiedades SET titulo = ?, tipo = ?, precio = ?, moneda = ?, imagen_principal = ?, lat = ?, lng = ?, direccion = ?, distrito = ? WHERE id = 1`, ['MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA', 'terreno', 30000, 'PEN', '/images/logroño.png', -5.9050939, -76.1376790, 'Calle La Campiña, Caserío Belén', 'Yurimaguas']);
   // Actualizar propiedad 2
   await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ?, descripcion = ?, tipo = ?, operacion = ?, distrito = ?, ciudad = NULL, lat = ?, lng = ? WHERE id = 4`, ['/images/yair.jpeg', JSON.stringify(['/images/yair.jpeg']), 'Vía de Acceso, MZ A, Lote 12, Urb. Monte Rey, Yurimaguas, Alto Amazonas, Loreto', 'terreno', 'venta', 'Yurimaguas', -5.9152361, -76.1410971]);
+  await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ?, titulo = ?, precio = ?, moneda = ?, distrito = ?, ciudad = NULL WHERE titulo = ?`, ['/images/flores.jpeg', JSON.stringify(['/images/flores.jpeg']), 'Las Flores, Yurimaguas', 145000, 'PEN', 'Yurimaguas', 'Las Flores, Yurimaguas']);
   await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ?, descripcion = ?, titulo = ?, tipo = ?, distrito = ?, ciudad = NULL, lat = ?, lng = ?, precio = ?, moneda = ? WHERE id = 2`, ['/images/buena.png', JSON.stringify(['/images/buena.png']), 'Predio - Calle Saniyacu, Urb. Libertad del Paranapura, Yurimaguas', 'Urb. Libertad del Paranapura, Yurimaguas', 'terreno', 'Yurimaguas', -5.8834442, -76.1311200, 69000, 'PEN']);
 
   // Blog de ejemplo
