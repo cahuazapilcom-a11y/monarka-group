@@ -120,12 +120,12 @@ async function init() {
   // Blog de ejemplo
   const blogCount = await get('SELECT COUNT(*) as c FROM blog');
   if (blogCount.c === 0) {
-    await run('INSERT INTO blog (titulo, slug, resumen, contenido, publicado) VALUES (?, ?, ?, ?, ?)', [
+    await run('INSERT INTO blog (titulo, slug, resumen, contenido, imagen, publicado) VALUES (?, ?, ?, ?, ?, ?)', [
       '5 consejos para comprar tu primera vivienda',
       '5-consejos-comprar-primera-vivienda',
       'Comprar una vivienda por primera vez puede ser abrumador. Aquí te damos los consejos clave para tomar la mejor decisión.',
       '<p>Comprar tu primera vivienda es una de las decisiones más importantes de tu vida.</p><h3>1. Define tu presupuesto</h3><p>Antes de buscar propiedades, calcula cuánto puedes pagar mensualmente sin comprometer tu calidad de vida.</p><h3>2. Investiga la zona</h3><p>Visita el barrio en diferentes momentos del día. Evalúa servicios, transporte y seguridad.</p><h3>3. Revisa el estado legal</h3><p>Asegúrate que la propiedad esté libre de cargas y con todos los documentos en regla.</p><h3>4. No te apresures</h3><p>Tómate el tiempo necesario para comparar opciones.</p><h3>5. Trabaja con expertos</h3><p>Un agente inmobiliario de confianza como MONARKA GROUP puede ahorrarte tiempo y dinero.</p>',
-      1
+      '/images/llave.jpeg', 1
     ]);
     await run('INSERT INTO blog (titulo, slug, resumen, contenido, publicado) VALUES (?, ?, ?, ?, ?)', [
       'El mercado inmobiliario en Loreto 2024',
