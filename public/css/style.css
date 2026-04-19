@@ -191,7 +191,7 @@ button, input, select, textarea { font-family: inherit; }
 }
 .blog-card:hover { transform: translateY(-4px); border-color: rgba(0,200,150,0.3); }
 .blog-img { height: 200px; overflow: hidden; background: var(--dark3); position: relative; }
-.blog-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.blog-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.5s; }
 .blog-card:hover .blog-img img { transform: scale(1.05); }
 .blog-body { padding: 24px; }
 .blog-date { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }

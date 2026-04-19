@@ -127,12 +127,12 @@ async function init() {
       '<p>Comprar tu primera vivienda es una de las decisiones más importantes de tu vida.</p><h3>1. Define tu presupuesto</h3><p>Antes de buscar propiedades, calcula cuánto puedes pagar mensualmente sin comprometer tu calidad de vida.</p><h3>2. Investiga la zona</h3><p>Visita el barrio en diferentes momentos del día. Evalúa servicios, transporte y seguridad.</p><h3>3. Revisa el estado legal</h3><p>Asegúrate que la propiedad esté libre de cargas y con todos los documentos en regla.</p><h3>4. No te apresures</h3><p>Tómate el tiempo necesario para comparar opciones.</p><h3>5. Trabaja con expertos</h3><p>Un agente inmobiliario de confianza como MONARKA GROUP puede ahorrarte tiempo y dinero.</p>',
       '/images/llave.jpeg', 1
     ]);
-    await run('INSERT INTO blog (titulo, slug, resumen, contenido, publicado) VALUES (?, ?, ?, ?, ?)', [
+    await run('INSERT INTO blog (titulo, slug, resumen, contenido, imagen, publicado) VALUES (?, ?, ?, ?, ?, ?)', [
       'El mercado inmobiliario en Loreto 2024',
       'mercado-inmobiliario-lima-2024',
       'Análisis del comportamiento del mercado inmobiliario en Loreto durante 2024 y las tendencias para el próximo año.',
       '<p>El mercado inmobiliario en Loreto ha mostrado una recuperación significativa durante el 2024.</p><h3>Tendencias principales</h3><p>Los distritos de Yurimaguas y Tarapoto continúan siendo los más demandados.</p><h3>Precios</h3><p>Los precios por m² en zonas premium se han mantenido estables, con un incremento moderado del 3-5%.</p>',
-      1
+      '/images/dinero.jpeg', 1
     ]);
   }
 
