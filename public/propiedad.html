@@ -37,7 +37,27 @@
     .map-container { height: 300px; border-radius: var(--radius); overflow: hidden; background: var(--dark3); margin-top: 12px; }
     .map-placeholder { height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: var(--text-muted); }
     .contact-form-prop { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-top: 40px; }
-    @media (max-width: 768px) { .prop-detail-grid { grid-template-columns: 1fr; } .prop-info-card { position: static; } }
+    @media (max-width: 1024px) {
+      .prop-detail-grid { grid-template-columns: 1fr 320px; gap: 24px; }
+    }
+    @media (max-width: 768px) {
+      .prop-detail-grid { grid-template-columns: 1fr; }
+      .prop-info-card { position: static; }
+      .prop-info-price { font-size: 1.6rem; }
+      .prop-info-title { font-size: 1.1rem; }
+      .gallery-main { height: 280px; }
+      .prop-section { margin-top: 28px; }
+      .contact-form-prop { padding: 20px; }
+    }
+    @media (max-width: 480px) {
+      .gallery-main { height: 220px; }
+      .prop-info-price { font-size: 1.4rem; }
+      .prop-specs { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .spec-item { padding: 10px; }
+      .spec-val { font-size: 1rem; }
+      .prop-info-card { padding: 20px; }
+      .map-container { height: 220px; }
+    }
   </style>
 </head>
 <body>
