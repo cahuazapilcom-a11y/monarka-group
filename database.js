@@ -101,7 +101,7 @@ async function init() {
       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, args);
 
     await ins(['MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA', 'Predio - Calle La Campiña, Yurimaguas', 'terreno', 'venta', 30000, 'PEN', 'Av. Larco 450', 'Miraflores', 0, 0, 295.83, 0, null, 1, -12.1211, -77.0282]);
-    await ins(['Casa en San Isidro', 'Predio - Calle Saniyacu, Urb. Libertad del Paranapura, Yurimaguas', 'terreno', 'venta', 580000, 'USD', 'Calle Saniyacu, Urb. Libertad del Paranapura', 'Yurimaguas', 0, 0, 167.70, 0, 2018, 1, -12.0960, -77.0384]);
+    await ins(['Urb. Libertad del Paranapura, Yurimaguas', 'Predio - Calle Saniyacu, Urb. Libertad del Paranapura, Yurimaguas', 'terreno', 'venta', 69000, 'PEN', 'Calle Saniyacu, Urb. Libertad del Paranapura', 'Yurimaguas', 0, 0, 167.70, 0, null, 1, -12.0960, -77.0384]);
     await ins(['Oficina Premium en San Isidro', 'Oficina corporativa en edificio empresarial de primer nivel, con recepción compartida y salas de reuniones.', 'oficina', 'alquiler', 3500, 'USD', 'Av. Rivera Navarrete 765', 'San Isidro', 0, 2, 95, 1, 2020, 0, -12.0932, -77.0280]);
     await ins(['Departamento en Barranco', 'Departamento con encanto en el corazón de Barranco, cerca de galerías de arte y restaurantes.', 'apartamento', 'alquiler', 1800, 'USD', 'Jr. Centenario 120', 'Barranco', 2, 1, 75, 0, 2015, 1, -12.1503, -77.0211]);
     await ins(['Terreno en La Molina', 'Terreno plano en zona residencial exclusiva, todos los servicios, ideal para construir la casa de sus sueños.', 'terreno', 'venta', 220000, 'USD', 'Av. La Fontana 890', 'La Molina', 0, 0, 450, 0, null, 0, -12.0852, -76.9302]);
@@ -111,7 +111,7 @@ async function init() {
   // Actualizar propiedad 1 con datos correctos
   await run(`UPDATE propiedades SET titulo = ?, tipo = ?, precio = ?, moneda = ?, imagen_principal = ?, lat = ?, lng = ?, direccion = ?, distrito = ? WHERE id = 1`, ['MZ. A, LOTE 1 LOTIZACION LA CAMPIÑA', 'terreno', 30000, 'PEN', '/images/logroño.png', -5.9050939, -76.1376790, 'Calle La Campiña, Caserío Belén', 'Yurimaguas']);
   // Actualizar propiedad 2
-  await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ?, descripcion = ?, tipo = ?, distrito = ?, ciudad = NULL, lat = ?, lng = ? WHERE id = 2`, ['/images/buena.png', JSON.stringify(['/images/buena.png']), 'Predio - Calle Saniyacu, Urb. Libertad del Paranapura, Yurimaguas', 'terreno', 'Yurimaguas', -5.8834442, -76.1311200]);
+  await run(`UPDATE propiedades SET imagen_principal = ?, imagenes = ?, descripcion = ?, titulo = ?, tipo = ?, distrito = ?, ciudad = NULL, lat = ?, lng = ?, precio = ?, moneda = ? WHERE id = 2`, ['/images/buena.png', JSON.stringify(['/images/buena.png']), 'Predio - Calle Saniyacu, Urb. Libertad del Paranapura, Yurimaguas', 'Urb. Libertad del Paranapura, Yurimaguas', 'terreno', 'Yurimaguas', -5.8834442, -76.1311200, 69000, 'PEN']);
 
   // Blog de ejemplo
   const blogCount = await get('SELECT COUNT(*) as c FROM blog');
