@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Estimado/a {{ name }},</h2>
+<p>Gracias por su interés en <strong>{{ business_name }}</strong>. Nos complace poder ayudarle a encontrar el mueble o colchón perfecto para su hogar.</p>
+
+<div class="highlight-box">
+  <strong>Hemos seleccionado estos productos especialmente para usted:</strong>
+</div>
+
+{% for product in products %}
+<div class="product-card">
+  <div>
+    <div class="product-name">{{ product.name }}</div>
+    <div class="product-detail">{{ product.material }} | {{ product.category }}</div>
+  </div>
+  <div class="product-price">S/. {{ "%.2f"|format(product.price) }}</div>
+</div>
+{% endfor %}
+
+<hr class="divider">
+
+<p>Nuestro equipo está disponible para atenderle y resolver cualquier consulta que tenga. Puede contactarnos directamente por WhatsApp o llamarnos al número indicado abajo.</p>
+
+<center>
+  <a href="https://wa.me/51{{ business_phone }}?text=Hola,%20vi%20su%20catálogo%20y%20me%20interesa%20un%20producto" class="cta-button">
+    📱 Consultar por WhatsApp
+  </a>
+</center>
+
+<p style="color:#888; font-size:13px; text-align:center;">También puede responder directamente a este correo.</p>
+{% endblock %}

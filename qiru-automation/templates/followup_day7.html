@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Estimado/a {{ name }},</h2>
+<p>Queremos hacerle llegar una <strong>oferta especial</strong> como parte de nuestra atención personalizada en <strong>{{ business_name }}</strong>.</p>
+
+<div class="highlight-box" style="background:#fff3e0; border-color:#ff9800;">
+  🎁 <strong>Oferta Especial esta semana:</strong><br>
+  Mencione este correo al contactarnos y reciba <strong>asesoría gratuita</strong> y condiciones especiales de pago.
+</div>
+
+<p>Si está considerando renovar su hogar, este es el momento ideal. Tenemos disponibilidad inmediata en nuestros productos más solicitados.</p>
+
+<p>No dude en escribirnos. Estaremos felices de atenderle.</p>
+
+<center>
+  <a href="https://wa.me/51{{ business_phone }}?text=Hola,%20vi%20su%20oferta%20especial%20y%20me%20interesa" class="cta-button">
+    🛋️ Ver Oferta Especial
+  </a>
+</center>
+
+<p style="color:#888; font-size:12px; text-align:center; margin-top:30px;">
+  Si no desea recibir más correos, responda con "No contactar" en el asunto.
+</p>
+{% endblock %}

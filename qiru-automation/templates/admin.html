@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - {{ business_name }}</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Arial, sans-serif; background: #f0f2f5; min-height: 100vh; }
+  .navbar { background: #1a1a2e; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+  .navbar h1 { font-size: 20px; color: #e8c848; }
+  .navbar span { font-size: 13px; color: #ccc; }
+  .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+  .card { background: white; border-radius: 10px; padding: 25px 30px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .card h2 { color: #1a1a2e; font-size: 18px; margin-bottom: 20px; border-bottom: 2px solid #e8c848; padding-bottom: 10px; }
+  label { display: block; font-size: 13px; color: #555; margin-bottom: 5px; font-weight: bold; }
+  input, select { width: 100%; padding: 10px 14px; border: 1px solid #ddd; border-radius: 6px; font-size: 14px; margin-bottom: 15px; }
+  input:focus, select:focus { outline: none; border-color: #e8c848; }
+  .btn { background: #1a1a2e; color: #e8c848; border: none; padding: 12px 25px; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; width: 100%; }
+  .btn:hover { background: #2d2d4e; }
+  .btn-success { background: #27ae60; color: white; }
+  .alert { padding: 12px 16px; border-radius: 6px; margin-bottom: 15px; font-size: 14px; display: none; }
+  .alert-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+  .alert-error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+  .badge-caliente { background: #ff4444; color: white; }
+  .badge-tibio { background: #ff9800; color: white; }
+  .badge-frio { background: #2196F3; color: white; }
+  #result-box { background: #f8f9fa; border: 1px solid #ddd; border-radius: 6px; padding: 15px; margin-top: 15px; display: none; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <h1>⚙️ {{ business_name }}</h1>
+  <span>Panel de Administración</span>
+</div>
+
+<div class="container">
+
+  <!-- Confirmar Pago -->
+  <div class="card">
+    <h2>💳 Confirmar Pago de Cliente</h2>
+    <div id="payment-alert" class="alert"></div>
+    <form id="payment-form">
+      <div class="grid2">
+        <div>
+          <label>Nombre del cliente</label>
+          <input type="text" id="p-name" placeholder="Ej: Juan Pérez" required>
+        </div>
+        <div>
+          <label>Email del cliente</label>
+          <input type="email" id="p-email" placeholder="cliente@email.com" required>
+        </div>
+      </div>
+      <div class="grid2">
+        <div>
+          <label>Producto comprado</label>
+          <select id="p-product">
+            {% for product in products %}
+            <option value="{{ product.name }}" data-price="{{ product.price }}">{{ product.name }} — S/. {{ "%.2f"|format(product.price) }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div>
+          <label>Método de pago</label>
+          <select id="p-method">
+            <option value="Yape">Yape</option>
+            <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+            <option value="Efectivo">Efectivo</option>
+            <option value="Tarjeta">Tarjeta</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid2">
+        <div>
+          <label>Monto pagado (S/.)</label>
+          <input type="number" id="p-amount" step="0.01" placeholder="0.00" required>
+        </div>
+        <div>
+          <label>N° de pedido (opcional)</label>
+          <input type="text" id="p-order" placeholder="Se genera automáticamente">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success">✅ Confirmar Pago y Enviar Email al Cliente</button>
+    </form>
+    <div id="payment-result" class="alert alert-success" style="margin-top:15px;"></div>
+  </div>
+
+  <!-- Agregar Lead Manual -->
+  <div class="card">
+    <h2>👤 Agregar Lead Manual</h2>
+    <div id="lead-alert" class="alert"></div>
+    <form id="lead-form">
+      <div class="grid2">
+        <div>
+          <label>Nombre completo</label>
+          <input type="text" id="l-name" placeholder="Nombre del cliente" required>
+        </div>
+        <div>
+          <label>Email</label>
+          <input type="email" id="l-email" placeholder="cliente@email.com">
+        </div>
+      </div>
+      <div class="grid2">
+        <div>
+          <label>Teléfono / WhatsApp</label>
+          <input type="text" id="l-phone" placeholder="9XXXXXXXX">
+        </div>
+        <div>
+          <label>Fuente</label>
+          <select id="l-source">
+            <option value="manual">Manual</option>
+            <option value="tiktok">TikTok</option>
+          </select>
+        </div>
+      </div>
+      <label>Mensaje o consulta del cliente</label>
+      <input type="text" id="l-message" placeholder="Ej: Quiero un colchón matrimonial, ¿tienen delivery?">
+      <button type="submit" class="btn">🚀 Procesar Lead (Clasificar + Enviar Email)</button>
+    </form>
+    <div id="result-box"></div>
+  </div>
+
+</div>
+
+<script>
+  // Auto-fill amount from product price
+  document.getElementById('p-product').addEventListener('change', function() {
+    const price = this.options[this.selectedIndex].dataset.price;
+    document.getElementById('p-amount').value = price;
+  });
+  // Init
+  document.getElementById('p-amount').value = document.getElementById('p-product').options[0].dataset.price;
+
+  // Payment form
+  document.getElementById('payment-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.disabled = true; btn.textContent = 'Enviando...';
+
+    const body = {
+      client_name: document.getElementById('p-name').value,
+      client_email: document.getElementById('p-email').value,
+      product_name: document.getElementById('p-product').value,
+      amount: parseFloat(document.getElementById('p-amount').value),
+      payment_method: document.getElementById('p-method').value,
+      order_id: document.getElementById('p-order').value || null,
+    };
+
+    try {
+      const resp = await fetch('/payment/confirm', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+      const data = await resp.json();
+      const el = document.getElementById('payment-result');
+      if (resp.ok) {
+        el.style.display='block'; el.className='alert alert-success';
+        el.innerHTML = `✅ Pago confirmado. Email enviado a <strong>${body.client_email}</strong>. N° de pedido: <strong>${data.order_id}</strong>`;
+        e.target.reset();
+      } else {
+        el.style.display='block'; el.className='alert alert-error';
+        el.textContent = '❌ Error: ' + (data.detail || 'No se pudo procesar');
+      }
+    } catch(err) {
+      alert('Error de conexión: ' + err.message);
+    }
+    btn.disabled = false; btn.textContent = '✅ Confirmar Pago y Enviar Email al Cliente';
+  });
+
+  // Lead form
+  document.getElementById('lead-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.disabled = true; btn.textContent = 'Procesando...';
+
+    const body = {
+      name: document.getElementById('l-name').value,
+      email: document.getElementById('l-email').value || null,
+      phone: document.getElementById('l-phone').value || null,
+      message: document.getElementById('l-message').value,
+    };
+
+    try {
+      const resp = await fetch('/leads/manual', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+      const data = await resp.json();
+      const el = document.getElementById('result-box');
+      el.style.display = 'block';
+
+      const tempColors = {caliente:'badge-caliente', tibio:'badge-tibio', frio:'badge-frio'};
+      const badge = `<span class="badge ${tempColors[data.temperature]}">${data.temperature.toUpperCase()}</span>`;
+
+      el.innerHTML = `
+        <strong>Lead procesado:</strong> ${data.lead}<br>
+        Temperatura: ${badge} &nbsp; Score: <strong>${data.score}/10</strong><br>
+        ${data.email_sent ? '📧 Email de bienvenida enviado' : '⚠️ Sin email — no se envió correo'}<br>
+        HubSpot ID: <code>${data.hubspot_contact_id || 'N/A'}</code>
+      `;
+    } catch(err) {
+      alert('Error: ' + err.message);
+    }
+    btn.disabled = false; btn.textContent = '🚀 Procesar Lead (Clasificar + Enviar Email)';
+  });
+</script>
+</body>
+</html>

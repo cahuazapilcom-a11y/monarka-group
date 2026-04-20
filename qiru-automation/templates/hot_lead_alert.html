@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 style="color:#ff4444;">🔥 ALERTA: Lead Caliente Detectado</h2>
+<p>El sistema ha detectado un lead con alta intención de compra. Contacte al cliente lo antes posible.</p>
+
+<div class="highlight-box" style="background:#fff3f3; border-color:#ff4444;">
+  <strong>Datos del lead:</strong><br><br>
+  👤 <strong>Nombre:</strong> {{ name }}<br>
+  📧 <strong>Email:</strong> {{ email or "No proporcionado" }}<br>
+  📱 <strong>Teléfono:</strong> {{ phone or "No proporcionado" }}<br>
+  🔥 <strong>Score:</strong> {{ score }}/10<br><br>
+  💬 <strong>Mensaje:</strong><br>
+  <em>{{ message or "Sin mensaje" }}</em>
+</div>
+
+{% if phone %}
+<center>
+  <a href="https://wa.me/51{{ phone }}?text=Hola%20{{ name }},%20le%20contactamos%20de%20{{ business_name }}%20para%20ayudarle%20con%20su%20consulta" class="cta-button" style="background:#25D366; color:white;">
+    📱 Escribir por WhatsApp ahora
+  </a>
+</center>
+{% endif %}
+
+<p style="color:#888; font-size:13px; margin-top:20px;">Este mensaje fue generado automáticamente por el sistema de automatización de Qiru Center.</p>
+{% endblock %}

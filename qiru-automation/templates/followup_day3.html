@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Estimado/a {{ name }},</h2>
+<p>Hace unos días le enviamos información sobre nuestros productos. Queremos asegurarnos de que haya recibido nuestra propuesta y de que podemos ayudarle.</p>
+
+<div class="highlight-box">
+  <strong>¿Tiene alguna duda?</strong><br>
+  Nuestro equipo está listo para orientarle y ayudarle a elegir el producto ideal para su hogar y presupuesto.
+</div>
+
+<p>En <strong>{{ business_name }}</strong> ofrecemos:</p>
+<ul style="color:#444; line-height:2;">
+  <li>✅ Garantía de calidad en todos nuestros productos</li>
+  <li>✅ Asesoramiento personalizado sin compromiso</li>
+  <li>✅ Precios competitivos y opciones de pago</li>
+  <li>✅ Entrega a domicilio disponible</li>
+</ul>
+
+<center>
+  <a href="https://wa.me/51{{ business_phone }}?text=Hola,%20quisiera%20más%20información%20sobre%20sus%20productos" class="cta-button">
+    💬 Hablar con un asesor
+  </a>
+</center>
+{% endblock %}

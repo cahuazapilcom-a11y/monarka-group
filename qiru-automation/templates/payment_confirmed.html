@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>✅ Pago Confirmado</h2>
+<p>Estimado/a <strong>{{ name }}</strong>,</p>
+<p>Nos complace informarle que hemos recibido y confirmado su pago correctamente. Gracias por confiar en <strong>{{ business_name }}</strong>.</p>
+
+<div class="highlight-box">
+  <strong>Detalle de su pedido:</strong><br><br>
+  🛋️ <strong>Producto:</strong> {{ product_name }}<br>
+  💰 <strong>Monto pagado:</strong> S/. {{ "%.2f"|format(amount) }}<br>
+  💳 <strong>Método de pago:</strong> {{ payment_method }}<br>
+  🔢 <strong>N° de pedido:</strong> {{ order_id }}
+</div>
+
+<p>Su pedido está siendo procesado. Nos comunicaremos con usted para coordinar la <strong>entrega a domicilio</strong> en el horario que mejor le convenga.</p>
+
+<p><strong>¿Tiene alguna pregunta sobre su pedido?</strong><br>
+Contáctenos directamente:</p>
+
+<center>
+  <a href="https://wa.me/51{{ business_phone }}?text=Hola,%20tengo%20una%20consulta%20sobre%20mi%20pedido%20{{ order_id }}" class="cta-button">
+    📞 Contactar sobre mi pedido
+  </a>
+</center>
+
+<hr class="divider">
+<p style="color:#888; font-size:13px;">Guarde este correo como comprobante de su compra. N° de pedido: <strong>{{ order_id }}</strong></p>
+{% endblock %}
